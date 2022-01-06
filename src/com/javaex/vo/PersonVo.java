@@ -7,6 +7,9 @@ public class PersonVo {
 	private String hp;
 	private String company;
 	
+	public PersonVo() {
+	}
+	
 	public PersonVo(String name, String hp, String company) {
 		this.name = name;
 		this.hp = hp;
@@ -57,7 +60,13 @@ public class PersonVo {
 		return "PersonVo [personId=" + personId + ", name=" + name + ", hp=" + hp + ", company=" + company + "]";
 	}
 
-	
+	public void showInfo() {
+		System.out.println(name + ", " + hp + ", " + company);
+	}
+
+	public String save() {
+		return name + "," + hp + "," + company;
+	}
 	
 
 }
