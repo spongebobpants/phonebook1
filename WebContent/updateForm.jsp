@@ -5,12 +5,13 @@
 <%
 
 PhoneDao phoneDao = new PhoneDao();
-
+//파라미터 4개 요청(정리)
 int id = Integer.parseInt(request.getParameter("id"));
 String name = request.getParameter("name");
 String hp = request.getParameter("hp");
 String company = request.getParameter("company");
 
+//전송된 값(파라미터 4개)을 Vo객체로 만든다
 PersonVo personVo = new PersonVo(name, hp, company);
 
 phoneDao.personUpdate(personVo);
@@ -18,6 +19,7 @@ phoneDao.personUpdate(personVo);
 response.sendRedirect("./list.jps");
 
 %>
+
 
 <!DOCTYPE html>
 <html>
