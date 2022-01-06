@@ -2,18 +2,27 @@
 <%@ page import="com.javaex.vo.PersonVo" %>
 <%@ page import="com.javaex.dao.PhoneDao" %>
 
+<%@ page import ="java.util.List" %>
+<%--JSP 페이지 전체에 적용되는 조건을 설정 --%>
+
 <%
-	//String name = request.getParameter("name");
-	//String hp = request.getParameter("hp");
-	//String company = request.getParameter("company");
+	PhoneDao phoneDao = new PhoneDao();
+
+	String name = request.getParameter("name");
+	String hp = request.getParameter("hp");
+	String company = request.getParameter("company");
 	
 	//test
 	//System.out.println(name);
 	//System.out.println(hp);
 	//System.out.println(company);
 	
-	//전송된 값 vo 객체로 만들기
-	PhoneDao phoneDao = new PhoneDao();	
+	//전송된 값(파라미터)을 vo객체로 만든다
+	PersonVo personVo = new PersonVo(name, hp, company);
+	//System.out.println(personVo.toString());
+	
+	//저장
+	phoneDao.personInsert(personVo);
 	
 	//redirect
 	response.sendRedirect("./list.jsp");
