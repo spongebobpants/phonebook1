@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "com.javaex.vo.PersonVo" %>
-<%@ page import = "com.javaex.dao.PhoneDao" %>
+<%@ page import="com.javaex.dao.PhoneDao" %>
+<%@ page import="com.javaex.vo.PersonVo" %>
 
-<%@ page import ="java.util.List" %>
+<%	PhoneDao phoneDao = new PhoneDao();
 
-<%
-	PhoneDao phoneDao = new PhoneDao();
-
-	String name=request.getParameter("name");
-	String hp =request.getParameter("hp");
-	String company = request.getParameter("company");
+	int personId = Integer.parseInt(request.getParameter("id"));
 	
-	PersonVo personVo = new PersonVo(name, hp, company);
-	
-	phoneDao.personDelete(personVo);
+	phoneDao.personDelete(personId);
 	
 	response.sendRedirect("./list.jsp");
 %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
